@@ -5,7 +5,7 @@ import pandas as pd
 import numpy as np
 from sklearn import metrics
 import geocoder
-from st_aggrid import GridOptionsBuilder, AgGrid, GridUpdateMode, DataReturnMode
+#from st_aggrid import GridOptionsBuilder, AgGrid, GridUpdateMode, DataReturnMode
 from http import server
 server.maxMessageSize = 1000
 st.set_option('deprecation.showPyplotGlobalUse', False)
