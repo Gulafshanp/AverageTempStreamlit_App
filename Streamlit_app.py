@@ -154,7 +154,7 @@ marine = marine.fillna(0)
 temp = temp.fillna(0)
 
 #Creating DATE column using Month, Day & Year Columns of the Dataframe
-@st.cache(suppress_st_warning=True)
+@st.cache(allow_output_mutation=True)
 def clean_data():
     temp['Date'] = temp[temp.columns[4:7]].apply(
     lambda x: '/'.join(x.dropna().astype(str)),
