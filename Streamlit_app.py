@@ -8,7 +8,7 @@ import geocoder
 #from st_aggrid import GridOptionsBuilder, AgGrid, GridUpdateMode, DataReturnMode
 from http import server
 server.maxMessageSize = 1000
-
+st.set_option('deprecation.showPyplotGlobalUse', False)
 
 import seaborn as sns
 import warnings
@@ -338,7 +338,7 @@ if st.sidebar.checkbox("Apply LSTM", False):
 
     st.sidebar.subheader("Display Visualizations")
     sdbar1 = st.sidebar.multiselect("Select:", df_info1)
-st.set_option('deprecation.showPyplotGlobalUse', False)
+
     if 'Predicted Average Temperature' in sdbar1:
         train_data = data[:sp_val]
         valid_data = data[sp_val:]
