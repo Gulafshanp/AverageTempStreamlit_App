@@ -15,7 +15,7 @@ import warnings
 warnings.filterwarnings("ignore")
 import plotly.graph_objs as go
 
-init_notebook_mode(connected=True)
+
 
 # For time stamps
 from datetime import datetime
