@@ -2,7 +2,6 @@ streamlit
 pandas
 numpy
 seaborn
-warnings
 plotly
 plotly-express
 matplotlib
@@ -12,5 +11,3 @@ requests
 io
 zipfile
 geocoder
-
-
