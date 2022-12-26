@@ -192,7 +192,7 @@ if "Datatypes of Columns" in sdbar:
     st.write(marine.dtypes)
     st.write(temp.dtypes)
 
-
+@st.cache(suppress_st_warning=True)
 def viz_m_s():
     color_scale = [(0, 'orange'), (1, 'red')]
     fig = px.scatter_mapbox(marine,
