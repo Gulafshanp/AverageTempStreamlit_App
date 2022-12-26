@@ -8,6 +8,7 @@ import geocoder
 from st_aggrid import GridOptionsBuilder, AgGrid, GridUpdateMode, DataReturnMode
 from http import server
 server.maxMessageSize = 1000
+st.set_option('deprecation.showPyplotGlobalUse', False)
 
 import seaborn as sns
 import warnings
