@@ -8,5 +8,4 @@ matplotlib
 tensorflow
 scikit-learn
 requests
-zipfile
 geocoder
