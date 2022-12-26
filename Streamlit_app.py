@@ -14,7 +14,7 @@ import seaborn as sns
 import warnings
 warnings.filterwarnings("ignore")
 import plotly.graph_objs as go
-from plotly.offline import init_notebook_mode,iplot,plot
+
 init_notebook_mode(connected=True)
 
 # For time stamps
