@@ -347,6 +347,8 @@ if st.sidebar.checkbox("Apply LSTM", False):
         valid_data['Predictions'] = predicted_avg_temp
 
         ## Plotting Using Matplotlib
+        st.header("Visualization")
+        st.subheader('Visualizing Predicted Average Temperature Using Model')
         plt.figure(figsize=(16, 6))
         plt.title('Prediction Of Avg Temperature Using Model')
         plt.xlabel('Date', fontsize=18)
@@ -361,6 +363,8 @@ if st.sidebar.checkbox("Apply LSTM", False):
         pred_avg_temp()
         
     def hist_avg_temp():
+        st.header("Visualization")
+        st.subheader('Visualizing Historical View of Average Temperature')
         plt.figure(figsize=(16, 6))
         plt.title('Historical View of Average Temperature')
         plt.xlabel('Date', fontsize=18)
