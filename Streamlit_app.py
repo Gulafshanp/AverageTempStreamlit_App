@@ -154,15 +154,11 @@ marine = marine.fillna(0)
 temp = temp.fillna(0)
 
 #Creating DATE column using Month, Day & Year Columns of the Dataframe
-@st.cache
-def clean_date():
-    global temp
-    temp = temp['Date'] = temp[temp.columns[4:7]].apply(
-        lambda x: '/'.join(x.dropna().astype(str)),
-        axis=1
-    )
-    return temp
-temp = clean_date()
+temp['Date'] = temp[temp.columns[4:7]].apply(
+lambda x: '/'.join(x.dropna().astype(str)),
+axis=1
+)
+
 #While converting it into datetime
 # format we got a eerror saying there is year 201
 #  which exist in the dataframe
