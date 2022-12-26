@@ -156,11 +156,12 @@ temp = temp.fillna(0)
 #Creating DATE column using Month, Day & Year Columns of the Dataframe
 def clean_date():
     global temp
-    temp['Date'] = temp[temp.columns[4:7]].apply(
+    temp = temp['Date'] = temp[temp.columns[4:7]].apply(
         lambda x: '/'.join(x.dropna().astype(str)),
         axis=1
     )
-clean_date()
+    return temp
+temp = clean_date()
 #While converting it into datetime
 # format we got a eerror saying there is year 201
 #  which exist in the dataframe
