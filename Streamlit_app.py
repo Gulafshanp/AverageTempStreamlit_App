@@ -340,6 +340,7 @@ if st.sidebar.checkbox("Apply LSTM", False):
     sdbar1 = st.sidebar.multiselect("Select:", df_info1)
     
     def pred_avg_temp():
+        global valid_data
         train_data = data[:sp_val]
         valid_data = data[sp_val:]
 
@@ -353,7 +354,7 @@ if st.sidebar.checkbox("Apply LSTM", False):
         plt.plot(train_data['AvgTemperature'])
         plt.plot(valid_data[['AvgTemperature', 'Predictions']])
         plt.legend(['Train', 'Val', 'Predictions'], loc='lower right')
-        fig = plt.tight_layout
+        fig = plt.tight_layout()
         st.pyplot(fig)
         
     if 'Predicted Average Temperature' in sdbar1:
@@ -365,7 +366,7 @@ if st.sidebar.checkbox("Apply LSTM", False):
         plt.xlabel('Date', fontsize=18)
         plt.ylabel('Average Temperature', fontsize=18)
         plt.plot(df["AvgTemperature"], label='Average Temperature history')
-        fig = plt.tight_layout
+        fig = plt.tight_layout()
         st.pyplot(fig)
         
     if 'Historical Average Temperature' in sdbar1:
