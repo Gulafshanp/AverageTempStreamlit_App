@@ -1,0 +1,16 @@
+streamlit
+pandas
+numpy
+seaborn
+warnings
+plotly
+plotly-express
+matplotlib
+tensorflow
+scikit-learn
+requests
+io
+zipfile
+geocoder
+
+
