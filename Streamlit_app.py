@@ -62,7 +62,8 @@ def load_data():
     # the first line of the file contains a string - that line shall de     ignored, hence skiprows
     global temp
     temp = pandas.read_csv(zf.open(match), low_memory=False)
-load_data()
+    return temp
+temp = load_data()
 #---------------------------------------------------------------#
 def main():
     st.title("Average Temperature Forecasting App")
