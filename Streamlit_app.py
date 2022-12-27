@@ -67,8 +67,8 @@ temp = load_data()
 #---------------------------------------------------------------#
 def main():
     st.title("Average Temperature Forecasting App")
-    st.subheader("""Access The Menu/ Options
-                    At Upper Left Corner in The Sidebar!""")
+    st.subheader("""Access The Menu/ Options:
+                    At Upper Left Corner in The Sidebar!!😊""")
     st.sidebar.title('Sidebar')
     st.sidebar.subheader("Options")
 if __name__ == '__main__':
@@ -381,3 +381,7 @@ if st.sidebar.checkbox("Apply LSTM", False):
     if 'Prediction Dataframe' in sdbar1:
         st.subheader("Predicted Average Temperature Dataframe")
         st.dataframe(valid_data)
+st.sidebar.subheader("""I hope You Liked the Application & UI
+                        This was made as part of a Data Analytics project.
+                        Creator:  Gulafshan""")
+
