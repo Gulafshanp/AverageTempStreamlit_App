@@ -67,6 +67,8 @@ temp = load_data()
 #---------------------------------------------------------------#
 def main():
     st.title("Average Temperature Forecasting App")
+    st.subheader("""Access The Menu/ Options
+                    At Upper Left Corner in The Sidebar!""")
     st.sidebar.title('Sidebar')
     st.sidebar.subheader("Options")
 if __name__ == '__main__':
