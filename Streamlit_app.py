@@ -382,8 +382,8 @@ if st.sidebar.checkbox("Apply LSTM", False):
         st.subheader("Predicted Average Temperature Dataframe")
         st.dataframe(valid_data)
 st.sidebar.subheader("""I hope You Liked the Application & UI
-                        This was made as part of a
-                        Data Analytics project.
+This was made as part of a
+Data Analytics project.
                         
-                        Creator:  Gulafshan""")
+Owned By:  Gulafshan""")
 
