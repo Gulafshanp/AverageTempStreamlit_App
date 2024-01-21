@@ -88,7 +88,7 @@ def load_data():
 
         # Find the first matching csv file in the zip
         match = [s for s in zf.namelist() if ".csv" in s][0]
-        global temp
+
         # Read the CSV file into a DataFrame
         temp = pd.read_csv(zf.open(match), low_memory=False)
 
