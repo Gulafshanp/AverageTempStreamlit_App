@@ -34,9 +34,8 @@ from sklearn.model_selection import train_test_split
 
 import requests
 from io import StringIO
-
+from zipfile import ZipFile, BadZipFile
 from io import BytesIO
-from zipfile import ZipFile
 import pandas
 
 
