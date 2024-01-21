@@ -47,7 +47,7 @@ marine = pd.read_csv("https://raw.githubusercontent.com/Gulafshanp/DataAnalytics
 
 #### Here Temp Dataset which is Temperature dataset will be given more
 ## Priority as We will be predicting the avg temperature
-@st.cache_data(suppress_st_warning=True)
+@st.cache_data
 def load_data():
     url = "https://storage.googleapis.com/kaggle-data-sets/29/2150/bundle/archive.zip?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=gcp-kaggle-com%40kaggle-161607.iam.gserviceaccount.com%2F20240121%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20240121T085057Z&X-Goog-Expires=259200&X-Goog-SignedHeaders=host&X-Goog-Signature=4a0227dbfdc523ea2ff50bba825702e9a198e45d096f22f9ef3e070ec33d7aa1fa8379764e1d82d7cfd3897c1ca0ff03e415f65f0d10c7a3c0bb003b2d91af325ed5d25ec3d017a559adac1cb5f44c2f124ba7b8c81e770b99f47b9cc18ca9f28a75f0cff17521383026c82603fe237d3eccdbb5a7b08fe528180277e3117dfc7d823b15371c1ab6a22214782fb96f2d425ff880458de08c926505f3a113c30dc5875ddb7635c593a42cfe05f61b40a7d6243d4df7114095e3b02856b2a4ce5f4e22e00e21f313867e447b488d42c5ec86c15520c0ff1b279928e41d281a66e2f65cbef309255be7f4d5d1a1b2b21136643a5af51b27892d30a20a8a2cb72795"
     content = requests.get(url)
