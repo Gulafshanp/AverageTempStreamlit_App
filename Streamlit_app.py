@@ -48,21 +48,50 @@ marine = pd.read_csv("https://raw.githubusercontent.com/Gulafshanp/DataAnalytics
 
 #### Here Temp Dataset which is Temperature dataset will be given more
 ## Priority as We will be predicting the avg temperature
+# def load_data():
+#     url = "https://storage.googleapis.com/kaggle-data-sets/1513202/2499089/bundle/archive.zip?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=gcp-kaggle-com%40kaggle-161607.iam.gserviceaccount.com%2F20221226%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20221226T080934Z&X-Goog-Expires=259200&X-Goog-SignedHeaders=host&X-Goog-Signature=820b3ac7524e806dfb504e664a38988fe2e4ba6f9ea88674a3e07aff5a728c0a2c0befbafbfaaab8b3ae91947aaad03a0c88927e19179b38a4ad1c79ad45cf249afe771f579a5ba56a549710b6fde37f04916c859b3684e762746a326a7dbdec7c02b3e0cc29d550bea51884f4ef44a751fe27dbec2ab851204f2ae01979fb64f1466edfd0688eeabd55c805d223dc2527d2552864615c19e102cc9cdd4b724634dfdc365e634f239149ba022906f3a82e453807fa6a782e99a4d24b9f5bc47c49a9b4365defee4e6cee7f52a9d8fe3282a35c31cc5f928498baf628c4329640befa1dcd8d2917514ea528ce58c72544b4827acb51421793538742a4a878cca6"
+#     content = requests.get(url)
+#     zf = ZipFile(BytesIO(content.content))
+
+#     for item in zf.namelist():
+#         print("File in zip: "+  item)
+
+#     # find the first matching csv file in the zip:
+#     match = [s for s in zf.namelist() if ".csv" in s][0]
+#     # the first line of the file contains a string - that line shall de     ignored, hence skiprows
+#     global temp
+#     temp = pandas.read_csv(zf.open(match), low_memory=False)
+#     return temp
 @st.cache(suppress_st_warning=True)
 def load_data():
     url = "https://storage.googleapis.com/kaggle-data-sets/1513202/2499089/bundle/archive.zip?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=gcp-kaggle-com%40kaggle-161607.iam.gserviceaccount.com%2F20221226%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20221226T080934Z&X-Goog-Expires=259200&X-Goog-SignedHeaders=host&X-Goog-Signature=820b3ac7524e806dfb504e664a38988fe2e4ba6f9ea88674a3e07aff5a728c0a2c0befbafbfaaab8b3ae91947aaad03a0c88927e19179b38a4ad1c79ad45cf249afe771f579a5ba56a549710b6fde37f04916c859b3684e762746a326a7dbdec7c02b3e0cc29d550bea51884f4ef44a751fe27dbec2ab851204f2ae01979fb64f1466edfd0688eeabd55c805d223dc2527d2552864615c19e102cc9cdd4b724634dfdc365e634f239149ba022906f3a82e453807fa6a782e99a4d24b9f5bc47c49a9b4365defee4e6cee7f52a9d8fe3282a35c31cc5f928498baf628c4329640befa1dcd8d2917514ea528ce58c72544b4827acb51421793538742a4a878cca6"
-    content = requests.get(url)
-    zf = ZipFile(BytesIO(content.content))
 
-    for item in zf.namelist():
-        print("File in zip: "+  item)
+    try:
+        response = requests.get(url)
+        response.raise_for_status()  # Raise an HTTPError for bad responses (4xx and 5xx status codes)
 
-    # find the first matching csv file in the zip:
-    match = [s for s in zf.namelist() if ".csv" in s][0]
-    # the first line of the file contains a string - that line shall de     ignored, hence skiprows
-    global temp
-    temp = pandas.read_csv(zf.open(match), low_memory=False)
-    return temp
+        # Check if the content type is a zip file
+        if response.headers['Content-Type'] != 'application/zip':
+            raise ValueError("The content is not a zip file.")
+
+        zf = ZipFile(BytesIO(response.content))
+
+        for item in zf.namelist():
+            print("File in zip: " + item)
+
+        # find the first matching csv file in the zip:
+        match = [s for s in zf.namelist() if ".csv" in s][0]
+
+        # the first line of the file contains a string - that line shall be ignored, hence skiprows
+        temp = pd.read_csv(zf.open(match), low_memory=False)
+        return temp
+
+    except requests.RequestException as e:
+        print(f"Error fetching data: {e}")
+        return None
+    except Exception as e:
+        print(f"Error: {e}")
+        return None
 temp = load_data()
 #---------------------------------------------------------------#
 def main():
